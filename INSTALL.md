@@ -22,8 +22,7 @@ cd ..
 ## Add symlinks from monorepo to local node_modules
 ```
 cd node_modules
-ln -s ../monorepo/packages/cerebral
-ln -s ../monorepo/packages/cerebral-provider-http/
+ln -s ../monorepo/packages/cerebral* .
 cd ..
 ```
 

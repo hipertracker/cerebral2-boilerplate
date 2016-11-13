@@ -1,13 +1,14 @@
 // https://cerebral.github.io/api/01_controller.html
 
 import {Controller} from 'cerebral'
-import Router from 'cerebral/router'
 import Devtools from 'cerebral/devtools'
+import router from './router'
 import http from './providers/http'
+import cache from './providers/cache'
 import app from './modules/App'
 
 // API: https://cerebral.github.io/api/01_controller.html
-const controller = Controller({
+export default Controller({
   options: {
     // Use strict rendering
     strictRender: true,
@@ -15,37 +16,32 @@ const controller = Controller({
     signalsProp: false
   },
 
-  // // https://cerebral.github.io/getting-real/03_devtools.html
-  // devtools: Devtools({
-  //   // Time travel
-  //   storeMutations: true,
-  //   // Warnings on mutating outside "state" API
-  //   preventExternalMutations: true,
-  //   // Warnings when passing in non-serializable data to signals and state tree
-  //   enforceSerializable: true,
-  //   // Warnings when strict render path usage is wrong
-  //   verifyStrictRender: true
-  // }),
+  // https://cerebral.github.io/getting-real/03_devtools.html
+  devtools: Devtools({
+    // Time travel
+    storeMutations: true,
+    // Warnings on mutating outside "state" API
+    preventExternalMutations: true,
+    // Warnings when passing in non-serializable data to signals and state tree
+    enforceSerializable: true,
+    // Warnings when strict render path usage is wrong
+    verifyStrictRender: true
+  }),
 
   // API: https://cerebral.github.io/api/08_router.html
-  router: Router({
-    routes: {
-      '/': 'home.routed',
-    }, // Route definitions
-    query: false, // Query support
-    onlyHash: false, // Use hash urls
-    baseUrl: '/' // Only handle url changes on nested path
-  }),
+  router,
 
   // Defines the top level state
   // API: https://cerebral.github.io/api/02_state.html
   state: {
-    welcome: 'Hello Cerebral 2!'
+    welcome: 'Hello Cerebral 2!',
+    github: {},
   },
 
   // API: https://cerebral.github.io/api/06_providers.html
   providers: [
     http,
+    cache,
   ],
 
   // Defines the top level signals

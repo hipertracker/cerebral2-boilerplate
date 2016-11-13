@@ -4,12 +4,12 @@ import {connect} from 'cerebral/react'
 import logo from './logo.svg';
 import './index.css';
 
-import Home from './Home'
+import GithubInfo from './GithubInfo'
 
 export default connect({
     welcome: 'app.welcome'
-  }, function App({welcome}) {
-    console.log({welcome})
+  },
+  function App({welcome}) {
     return (
       <div className="App">
         <div className="App-header">
@@ -17,11 +17,11 @@ export default connect({
           <h2>{welcome}</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/components/App.js</code> save and reload. See Cerebral 2 home page for more
+          To get started, edit <code>src/components/App.js</code> save to reload. See Cerebral 2 home page for more
           details <a href="https://cerebral.github.io/">https://cerebral.github.io/</a>.
         </p>
         <hr/>
-        <Home/>
+        <GithubInfo title=""/>
       </div>
     )
   }
