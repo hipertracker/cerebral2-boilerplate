@@ -3,7 +3,7 @@
 import {Controller} from 'cerebral'
 import Router from 'cerebral/router'
 import Devtools from 'cerebral/devtools'
-import HttpProvider from 'cerebral-provider-http'
+import http from './providers/http'
 import app from './modules/App'
 
 // API: https://cerebral.github.io/api/01_controller.html
@@ -45,51 +45,8 @@ const controller = Controller({
 
   // API: https://cerebral.github.io/api/06_providers.html
   providers: [
-    
-    // https://github.com/cerebral/cerebral/tree/master/packages/cerebral-provider-http
-    // Reember that this provide uses plain XMLHttpRequest object with all AJAX power
-    // inluding aborting requests, cors, etc.
-    // See: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
-    HttpProvider({
-
-      // enable cross-origin resource sharing
-      cors: true,
-
-      // Set a path prefix to all requests,
-      // f.ex. "/api"
-      baseUrl: '',
-
-      // Sends cookies to cross domain request
-      withCredentials: false,
-
-      // Allow cross domain request. It adjusts the
-      // request headers to allowed. Note that server
-      // has to allow this request as well
-      cors: false,
-
-      // Headers will be merged with existing headers,
-      // these are the default ones
-      headers: {
-       'Accept': 'application/json',
-       'Content-Type': 'application/json;charset=UTF-8'
-      },
-
-      // You can change how the request is sent to the
-      // server, by default we handle JSON and
-      // x-www-form-urlencoded
-      onRequest: function (xhr, options) {
-       // Default implementation taking care of cors, credentials,
-       // headers and the data to be passed
-      },
-
-      // Configure how responses are resolved and rejected
-      onResponse: function (response, resolve, reject) {
-       // Default implementation which resolves status code
-       // 200 - 299, and rejects the others. It also parses
-       // to JSON or x-www-form-urlencoded based on header
-      }
-    })
-  ],
+    http
+  ]
 
   // Defines the top level signals
   // Concept: https://cerebral.github.io/concepts/02_signals.html
