@@ -2,23 +2,21 @@
 
 export default function getHttp(url, payload={}) {
 
-  function action({services, output, cache}) {
-
+  function action({http, output, cache}) {
     const cacheKey = JSON.stringify([url, payload])
-
     const data = cache.get(cacheKey)
 
     if (data !== null) return output.success({data})
 
-    console.log('@@@', services)
-
-    services.http.get(url, {query: payload})
+    return http.get(url, {query: payload})
       .then(response => {
+        console.log("SUCCESS")
         const data = response.result
         cache.set(cacheKey, data)
         output.success(data)
       })
       .catch(response => {
+        console.log("ERROR")
         output.error(response.result)
       })
   }
