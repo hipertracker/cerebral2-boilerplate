@@ -5,7 +5,7 @@ import HttpProvider from 'cerebral-provider-http'
 // Remember that this provider uses plain XMLHttpRequest object with all it's power
 // See: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
 
-const http = HttpProvider({
+export default HttpProvider({
   // Set a path prefix to all requests,
   // f.ex. "/api"
   baseUrl: '',
@@ -25,6 +25,7 @@ const http = HttpProvider({
     'Content-Type': 'application/json;charset=UTF-8'
   },
 
+  /*
   // You can change how the request is sent to the
   // server, by default we handle JSON and
   // x-www-form-urlencoded
@@ -39,6 +40,6 @@ const http = HttpProvider({
     // 200 - 299, and rejects the others. It also parses
     // to JSON or x-www-form-urlencoded based on header
   }
+  */
 })
 
-export default http
