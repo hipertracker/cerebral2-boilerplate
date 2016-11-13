@@ -1,23 +1,26 @@
 // example of the factory using in memory caching for the same requests
 
-export default function getHttp(url, payload={}) {
-
+export default function getHttp(url, payload) {
   function action({http, path, cache}) {
-    // const cacheKey = JSON.stringify([url, payload])
-    // const data = cache.get(cacheKey)
-    //
-    // if (data !== null) return path.success({data})
     return http.get(url, {query: payload})
       .then(response => {
         console.log("SUCCESS")
         const data = response.result
-        // cache.set(cacheKey, data)
-        path.success(data)
+        return path.success(data)
       })
       .catch(response => {
         console.log("ERROR")
-        path.error(response.result)
+        return path.error(response.result)
       })
   }
   return action
 }
+
+
+// const cacheKey = JSON.stringify([url, payload])
+// const data = cache.get(cacheKey)
+//
+// if (data !== null) return path.success({data})
+
+
+// cache.set(cacheKey, data)
