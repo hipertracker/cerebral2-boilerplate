@@ -7,8 +7,9 @@ import './index.css';
 import Home from './Home'
 
 export default connect({
-    welcome: 'welcome'
+    welcome: 'app.welcome'
   }, function App({welcome}) {
+    console.log({welcome})
     return (
       <div className="App">
         <div className="App-header">

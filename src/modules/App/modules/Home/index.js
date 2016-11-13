@@ -3,9 +3,9 @@
 import loadData from './actions/loadData'
 
 export default {
-  state: {},
+  // state: {},
   signals: {
     routed: loadData,
   },
-  modules: {}
+  // modules: {}
 }
