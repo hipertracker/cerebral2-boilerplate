@@ -1,9 +1,10 @@
 // example of the factory using in caching for the same requests
 
-export default function getHttp(url, payload, cache=true) {
+export default function getHttp(url, payload, useCache=true) {
   function action({http, path, cache}) {
-    if (cache) {
-      const cacheKey = JSON.stringify([url, payload])
+    let cacheKey
+    if (useCache) {
+      cacheKey = JSON.stringify([url, payload])
       const data = cache.get(cacheKey)
       if (data !== null) {
         return path.success({data})
@@ -12,7 +13,7 @@ export default function getHttp(url, payload, cache=true) {
     return http.get(url, {query: payload})
       .then(response => {
         const data = response.result
-        if (cache) {
+        if (useCache) {
           cache.set(cacheKey, data)
         }
         return path.success(data)
