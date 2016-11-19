@@ -1,14 +1,17 @@
 {
   "name": "cerebral2-boilerplate",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.2.0",
+  "private": false,
   "devDependencies": {
     "react-scripts": "0.7.0"
   },
   "dependencies": {
     "boomerang-cache": "^1.1.0",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "cerebral": "next",
+    "cerebral-provider-http": "next",
+    "cerebral-router": "next",
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
