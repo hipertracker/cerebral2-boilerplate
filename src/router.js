@@ -5,7 +5,7 @@ export default Router({
   routes: {
     '/': 'app.routed'
   },
-  query: false, // Query support
-  onlyHash: true, // Use hash urls
+  query: true, // Query support
+  onlyHash: true,
   baseUrl: '/' // Only handle url changes on nested path
 })

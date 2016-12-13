@@ -1,11 +1,10 @@
 // import {copy} from 'cerebral/operators'
-
-import getCache from '../../../factories/getCache'
-
+// import getCache from '../../../factories/getCache'
 // import loadData from '../actions/loadData'
+import getHttp from '../../../factories/getHttp'
 
 export default [
-  getCache('https://api.github.com'), {
+  getHttp('https://api.github.com'), {
     success: [
 
     ],

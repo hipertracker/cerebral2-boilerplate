@@ -10,23 +10,11 @@ import app from './modules/App'
 // API: https://cerebral.github.io/api/01_controller.html
 export default Controller({
   options: {
-    // Use strict rendering
     strictRender: true,
-    // Expose props.signals with all signals in components
-    signalsProp: false
   },
 
   // https://cerebral.github.io/getting-real/03_devtools.html
-  devtools: Devtools({
-    // Time travel
-    storeMutations: true,
-    // Warnings on mutating outside "state" API
-    preventExternalMutations: true,
-    // Warnings when passing in non-serializable data to signals and state tree
-    enforceSerializable: true,
-    // Warnings when strict render path usage is wrong
-    verifyStrictRender: true
-  }),
+  devtools: Devtools(),
 
   // API: https://cerebral.github.io/api/08_router.html
   router,
@@ -47,7 +35,7 @@ export default Controller({
   // Defines the top level signals
   // Concept: https://cerebral.github.io/concepts/02_signals.html
   // API: https://cerebral.github.io/api/03_signals.html
-  // signals: {},
+  signals: {},
 
   // Defines the top level modules
   modules: {

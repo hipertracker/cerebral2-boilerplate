@@ -3,15 +3,16 @@
   "version": "0.2.0",
   "private": false,
   "devDependencies": {
-    "react-scripts": "0.7.0"
+    "react-scripts": "0.8.4"
   },
   "dependencies": {
     "boomerang-cache": "^1.1.0",
     "cerebral": "next",
     "cerebral-provider-http": "next",
     "cerebral-router": "next",
-    "react": "^15.4.0",
-    "react-dom": "^15.4.0"
+    "function-tree": "next",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
